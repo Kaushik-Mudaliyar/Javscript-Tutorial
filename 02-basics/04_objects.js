@@ -35,7 +35,7 @@ const obj3={5:"e",6:"f"}
 
 //this was the most used syntax to concat the objects using the spread method here using ... triple dots we can assign a objects value to other object..
 const obj4={...obj1,...obj2}
-console.log(obj4);
+// console.log(obj4);
 
 // Array of objects :-
 // Here we are creating an array consists of objects and learning how to get the value of the array of object..
@@ -52,10 +52,28 @@ const users=[
     }
 ]
 
-console.log(users[2].email)
-console.log(tinderUser);
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// console.log(users[2].email)
+// console.log(tinderUser);
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 // It is used to check whether the property is defind inside the object or not..
-console.log(tinderUser.hasOwnProperty(`isLoggedI`));
+// console.log(tinderUser.hasOwnProperty(`isLoggedI`));
+
+// HEre we are making an object which have keys and values 
+const course={
+    name:"Kaushik",
+    price:"999",
+    courseInstructor:"Hitesh"
+}
+// So if you need to access the objects value you are using . operation to console the value like this:
+console.log(course.courseInstructor)
+
+// If you want to write a clean code you can write in this way also:
+// const {courseInstructor}=course;
+// so here after using this we can simply write courseInstructor to console the name of the courseInstructor..
+// console.log(courseInstructor);
+
+// if you want that courseInstructor was a long name so you can give a new name to this syntax:
+const {courseInstructor:Instructor}=course;
+console.log(Instructor);
