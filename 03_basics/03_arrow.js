@@ -1,13 +1,13 @@
 // this keyword in javascript is used to give the current context of the scope.
 // let's take an example:
 // In this object we are using this keyword so it will give current context of the username which was kaushik.
-const user={
-    username:"Kaushik",
-    price:333,
-    welcomeMessage:function welcomeMessage() {
-        console.log(`this.username,Welcome to the website.`)
-    }
-}
+const user = {
+  username: "Kaushik",
+  price: 333,
+  welcomeMessage: function welcomeMessage() {
+    console.log(`this.username,Welcome to the website.`);
+  },
+};
 // user.welcomeMessage()
 // user.username="Manish"
 // user.welcomeMessage()
@@ -34,11 +34,11 @@ const user={
 // Arrow function in javascript:
 
 // We cannot use this keyword in arrow functions also .It is important question in interview.
-const chai =() => {
-    let username="Kaushik"
-    console.log(this)
-    console.log(this.username)
-}
+const chai = () => {
+  let username = "Kaushik";
+  console.log(this);
+  console.log(this.username);
+};
 // chai()
 // Basic Arrow function:
 // const addTwo = (num1,num2) => {
@@ -50,6 +50,6 @@ const chai =() => {
 // const addTwo = (num1,num2) => num1 + num2
 // It was another type we can make a arrow function using parenthesis.
 // const addTwo = (num1,num2) => (num1 + num2)
-const addTwo = (num1,num2) => ({username:"Kaushik"})
+const addTwo = (num1, num2) => ({ username: "Kaushik" });
 
-console.log(addTwo(3,3))
+console.log(addTwo(3, 3));
