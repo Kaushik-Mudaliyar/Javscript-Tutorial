@@ -1,0 +1,11 @@
+Javascript Execution Context:
+ 1. Global Execution Context
+ 2. Function Execution Context
+ 3. Eval Execution Context
+
+After the Execution Context,it will undergo Execution Phase:
+ 1. Memory Creation Phase
+ 2. Execution Phase
+
+ Javascript is a single threaded programming language.In Javascript everything is a process.
+ Watched the whole video and understand the whole Javascript Execution Context...
