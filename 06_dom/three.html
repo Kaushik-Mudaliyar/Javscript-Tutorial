@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Learning</title>
+  </head>
+  <body style="background-color: black; color: white"></body>
+  <script>
+    // Using create element we can create the element using javascript.
+    const div = document.createElement(`div`);
+    console.log(div);
+    // Many people prefer the setAttributes over the className and id because the className and id overwrites the previous one.
+    // So we can use setAttributes such that nothing happen to the previous code.
+    div.className = "main";
+    div.id = "myId";
+    div.setAttribute(`title`, `generated title`);
+    div.style.backgroundColor = "green";
+    div.style.padding = "14px";
+    // It also overwrites the previous value.
+    // div.innerText="Chai aur code"
+    const addText = document.createTextNode("Chai aur code");
+    div.appendChild(addText);
+    document.body.appendChild(div);
+  </script>
+</html>
