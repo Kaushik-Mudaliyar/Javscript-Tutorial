@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Learning</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    // It is my way to create the li element and insert python inside the li.
+    // const ulist = document.querySelector(`ul`)
+    // const li=document.createElement(`li`)
+    // // li.innerText="Python"
+    // const addText=document.createTextNode("Python")
+    // li.appendChild(addText)
+    // ulist.appendChild(li)
+
+    // Adding list and text to the ul using function:
+    function addLanguage(LangName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${LangName}`;
+      document.querySelector(`.language`).appendChild(li);
+    }
+    addLanguage("Python");
+
+    // It was optimised approach of the above function:
+    function optiLanguage(LangName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(`${LangName}`));
+      document.querySelector(`.language`).appendChild(li);
+    }
+    optiLanguage("Java");
+
+    // edit element
+    const secondLang = document.querySelector(`li:nth-child(2)`);
+    // secondLang.innerHTML="C++"
+    const newli = document.createElement(`li`);
+    newli.textContent = "C++";
+    secondLang.replaceWith(newli);
+
+    // edit element
+    const firstLang = document.querySelector(`li:nth-child(1)`);
+    firstLang.outerHTML = "<li>Python</li>";
+
+    // remove element
+    const lastLang = document.querySelector("li:nth-child(3)");
+    lastLang.remove();
+  </script>
+</html>
