@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html Events</title>
+  </head>
+
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // Javascript is a sequential running language but some time due to some invoke it can change also.
+    // Events in javascript
+
+    // Second Approach
+    // Using these approach is good but we can't get many features in that so we need to use events to call event in javascript
+    // document.getElementById(`owl`).onclick=function(){
+    //     alert(`owl clicked`)
+    // }
+    // In old time many use this to occur the event in javascript :attachEvent()
+    // In jquery: on is used to add events in javascript
+
+    // Third Approach
+    // Topics to learn online:
+    // type,timestamp,defaulPrevented,preventDefault
+    // target , toElement, srcElement , screen
+    // altkey,shiftkey,ctrlkey.keyCode
+    // clientX,clientY,screenX,screenY
+
+    // It is an example of the event bubling, when we use events on the parent and child differently,it consoles the owl clicked first and then it consoles the inside the ul because of the event bubbling.
+    // If we want to stop the event bubbling in events we can use stopPropogation inside the eventlistener such that it stops propogation of the event.
+    // But there are two types of propogation in js: Event Bubbling and Event Capturing.Most people don't learn about it.
+    //Example of Event Bubbling:
+    // document.getElementById(`images`).addEventListener(`click`, function (e) {
+    //     console.log(`Inside the ul`);
+
+    // },false)
+    // document.getElementById(`owl`).addEventListener(`click`, function (e) {
+    //     e.stopPropagation();
+    //     console.log(`owl clicked again`);
+
+    // },false)
+
+    // In Event Capturing, there is opposite Event Propogation than the Event Bubbling, as Here the parent of the owl which was images consoles first then the owl clicked consoles.
+    // Here, we can also use stopPropogation such that it does not propogate.
+    //Example of Event Capturing:
+    // document.getElementById(`images`).addEventListener(`click`, function (e) {
+    //     console.log(`Inside the ul`);
+    //     e.stopPropagation();
+
+    // }, true)
+    // document.getElementById(`owl`).addEventListener(`click`, function (e) {
+    //     console.log(`owl clicked again`);
+
+    // }, true)
+
+    // document.getElementById(`google`).addEventListener(`click`, function (e) {
+    //     e.preventDefault();
+    //     console.log("Google Clicked")
+    // })
+
+    document.getElementById(`images`).addEventListener("click", function (e) {
+      console.log(e.target.parentNode);
+      if (e.target.tagName === `IMG`) {
+        let removeIt = e.target.parentNode;
+        // To remove the elements using remove method.
+        removeIt.remove();
+      }
+    });
+  </script>
+</html>
