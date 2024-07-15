@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async in Javascript</title>
+  </head>
+
+  <body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">stop</button>
+  </body>
+  <script>
+    // settimeout is a async fucntion used to get something after a given amount of time like below we are giving 2000 which means after 2s it consoles the name which is Kaushik.
+    // It only runs one times after the time completed it means after that it does not print it.
+
+    // setTimeout(() => {
+    //     console.log("Kaushik")
+    // },2000);
+
+    // We can also do the same thing in a different way also.
+    // const sayMyName = function () {
+    //     console.log("Kaushik")
+    // }
+    // // It will act as same as above.
+    // setTimeout(sayMyName, 2000)
+
+    // Changing h1 with
+
+    const changeText = function () {
+      document.querySelector(`h1`).innerHTML = "Best Js Series";
+    };
+    const changeMe = setTimeout(changeText, 2000);
+    document.querySelector(`#stop`).addEventListener(`click`, () => {
+      // It is use to stop the timeout define by the user.
+      // Imp: We need to give the reference then and then it works and clear the timeout.It does not work without the reference.
+      clearTimeout(changeMe);
+    });
+  </script>
+</html>
