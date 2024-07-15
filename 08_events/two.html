@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async in Javascript</title>
+  </head>
+
+  <body>
+    <h1>Chai aur Javascript</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+  </body>
+  <script>
+    // setInterval is a very useful async function such that using it we give an interval such that a function would call in intervals of time repeatedly.
+    // It was direct approach to set an interval.
+    // setInterval(() => {
+    //     console.log("Kaushik",Date.now())
+    // }, 2000);
+
+    // We can use a different approach to set an interval.
+    // const sayMyName = function (name) {
+    //     console.log(name, Date.now())
+    // }
+    // setInterval(sayMyName,2000)
+
+    // We can also give parameters in the setInterval to give that particular output.
+    // let Interval_id = setInterval(() => {
+    //         console.log("Kaushik", Date.now())
+
+    //     }, 2000)
+    // clearInterval(Intervalid)
+
+    let Interval_id;
+    // Now we want to start the interval when we click the start button and stop the interval when we click the stop button.
+    document.querySelector(`#start`).addEventListener(`click`, () => {
+      Interval_id = setInterval(() => {
+        console.log("Kaushik", Date.now());
+      }, 2000);
+    });
+    document.querySelector(`#stop`).addEventListener(`click`, () => {
+      clearInterval(Interval_id);
+    });
+  </script>
+</html>
