@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body style="background-color: black; color: white">
+    <div>0 UNSENT Client has been created. open() not called yet.</div>
+    <div>1 OPENED open() has been called.</div>
+    <div>
+      2 HEADERS_RECEIVED send() has beencalled, and headers and status are
+      available.
+    </div>
+    <div>3 LOADING Downloading;responseText holds partial data.</div>
+    <div>4 DONE The operation is complete.</div>
+  </body>
+  <script>
+    const requestUrl = `https://randomuser.me/api/`;
+    const xhr = new XMLHttpRequest();
+    xhr.open(`GET`, requestUrl);
+    // It will console the state of that request like 0,1,2,3,4
+    // Here it will console 1
+    // console.log(xhr.readyState)
+
+    // Now if you want to print the whole request you can do this:
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+
+      if (xhr.readyState === 4) {
+        // Now here we are storing the response we get through the api in the data variable.
+        // const data = this.responseText
+
+        // Here we are printing the response we get using the api
+        // console.log(data)
+
+        // Here we are getting the response in the string format and we need to convert it into the object to access the data inside the api. so here we are converting the string to object using JSON.parse method such that it will convert into the object and we can get access to the data.
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+        console.log(data.results[0].gender);
+        // Here we are printing the type such that we know it is converted or not
+        console.log(typeof data);
+      }
+    };
+    xhr.send();
+  </script>
+</html>
