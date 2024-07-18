@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+
+  <body style="background-color: black">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    // Example of lexical scoping :
+    // Lexical scoping means to get access of the property which was outside of the inner function and inside the outer function . In these example the init() is a outer function and the displayName() is the inside function, so in console we got the name.Let's understand
+
+    // The inner function can have all the access to the variables of the outer function but the outer function cannot have access to the variables of the inner function.And if we have another child function inside the init(),then it also cannot access or share the variable.
+    function init() {
+      let name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      displayName();
+    }
+    init();
+
+    // But as we know that out of the function we cannot have access let's take an example:
+    // function Hello(){
+    //     let greeting = "Hello"
+    // }
+    // console.log(greeting)
+
+    //  Closure in javascript:
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+  </script>
+  <script>
+    // document.querySelector(`#orange`).addEventListener(`click`,function(){
+    //     document.body.style.backgroundColor=`orange`
+    // })
+    // document.querySelector(`#green`).addEventListener(`click`,function(){
+    //     document.body.style.backgroundColor=`green`
+    // })
+
+    // if we want to make many buttons than it was a very huge code. so we are creating a funtion such that we should follow the DRY principle.
+    function clickHandler(color) {
+      // document.body.style.backgroundColor=`${color}`
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+    // Here it will not work properly as it was already in orange or green and we are applying it into the onclick method so we need to do something else.It was due to when we need to apply onclick we need to give a function that's why it was not working.
+    // document.getElementById(`orange`).onclick=clickHandler("orange")
+    // document.getElementById(`green`).onclick=clickHandler("green")
+
+    // Now when we are returning the function to the onclick it will do task perfectly.
+    document.getElementById(`orange`).onclick = clickHandler("orange");
+    document.getElementById(`green`).onclick = clickHandler("green");
+  </script>
+</html>
